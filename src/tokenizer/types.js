@@ -65,6 +65,7 @@ export const types = {
   backQuote: new TokenType("`", startsExpr),
   dollarBraceL: new TokenType("${", {beforeExpr: true, startsExpr: true}),
   at: new TokenType("@"),
+  silcrow: new TokenType("§"),
 
   // Operators. These carry several kinds of properties to help the
   // parser use them properly (the presence of these properties is

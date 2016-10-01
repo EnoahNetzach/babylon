@@ -432,6 +432,10 @@ export default class Tokenizer {
         ++this.state.pos;
         return this.finishToken(tt.backQuote);
 
+      case 167: // '§'
+        ++this.state.pos;
+        return this.finishToken(tt.silcrow);
+
       case 48: // '0'
         let next = this.input.charCodeAt(this.state.pos + 1);
         if (next === 120 || next === 88) return this.readRadixNumber(16); // '0x', '0X' - hex number

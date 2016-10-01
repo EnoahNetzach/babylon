@@ -82,7 +82,8 @@ pp.parseStatement = function (declaration, topLevel) {
     case tt._if: return this.parseIfStatement(node);
     case tt._return: return this.parseReturnStatement(node);
     case tt._switch: return this.parseSwitchStatement(node);
-    case tt._throw: return this.parseThrowStatement(node);
+    case tt.
+      _throw: return this.parseThrowStatement(node);
     case tt._try: return this.parseTryStatement(node);
 
     case tt._let:
@@ -582,6 +583,15 @@ pp.parseFunction = function (node, isStatement, allowExpressionBody, isAsync, op
       this.unexpected();
     } else {
       node.generator = true;
+      this.next();
+    }
+  }
+
+  if (this.match(tt.silcrow)) {
+    if (!this.hasPlugin("namedFunctions")) {
+      this.unexpected();
+    } else {
+      node.named = true;
       this.next();
     }
   }
